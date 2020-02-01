@@ -5,6 +5,7 @@
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
+const writeListData = require('./writeList')
 module.exports = appInfo => {
   /**
    * built-in config
@@ -23,7 +24,7 @@ module.exports = appInfo => {
         // 密码
         password: 'root',
         // 数据库名
-        database: '1707c',
+        database: 'vacation',
       },
       // 是否加载到 app 上，默认开启
       app: true,
@@ -36,7 +37,8 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1580447066365_4467';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['jwt'];
+  config.jwt       = writeListData
 
   // add your user config here
   const userConfig = {

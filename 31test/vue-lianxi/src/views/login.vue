@@ -35,7 +35,8 @@ export default {
       if(data.data.code===200){
         
         alert(data.data.msg)
-        localStorage.setItem('token',data.data.token)
+        
+        localStorage.setItem('token',data.data.data.token)
         this.$router.push('/home')
         return
       }
