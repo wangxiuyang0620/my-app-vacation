@@ -5,6 +5,10 @@ class NewslistService extends Service {
    return await this.app.mysql.select('newslist')
      
   }
+  async itemlist(key) {
+    return await this.app.mysql.select('newslist',{where:{class:key}})
+      
+   }
  
 }
 

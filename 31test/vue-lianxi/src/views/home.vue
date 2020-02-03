@@ -5,7 +5,10 @@
       <span>剧集分类</span>
     </div>
     <div class="content">
-      <div v-for="(item,index) in list" :key="index">{{item}}</div>
+      <div v-for="(item,index) in list" :key="index" @click="toclass(item.class)">
+        <p>{{item.class}}</p>
+        <img :src="item.classsrc">
+      </div>
     </div>
   </div>
 </template>
@@ -18,8 +21,16 @@ export default {
   },
   methods: {
     ...mapActions(["getList"]),
-    goback(){
-      this.$router.push('/login')
+    goback() {
+      this.$router.push("/login");
+    },
+    toclass(itemclass) {
+      this.$router.push({
+        name:"class",
+        params:{
+          class:itemclass
+        }
+      });
     }
   },
   mounted() {
@@ -51,18 +62,32 @@ export default {
     line-height: 45px;
   }
 }
-.content{
+.content {
   width: 100%;
   flex: 1;
   overflow: auto;
-  div{
+  div {
     width: 80%;
     height: 80px;
     border: 1px solid #ccc;
-    border-radius: 10px ;
-    margin: 20px  35px;
-  padding: 10px;
+    border-radius: 10px;
+    margin: 20px 35px;
+    padding: 10px;
+    position: relative;
+    p{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 99;
+    }
+    img{
+     position: absolute;
+     top:0;
+     left:0;
+     width: 100%;
+     height: 100%;
 
+    }
   }
 }
 </style>
