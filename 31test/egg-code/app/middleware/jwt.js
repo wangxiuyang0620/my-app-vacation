@@ -9,6 +9,7 @@ function verifyFunc(token,ctx){
     })
 }
 module.exports = options =>{
+  
     return async (ctx,next)=>{
         //白名单不需要验证
         if(options.includes(url.parse(ctx.url).pathname)){
