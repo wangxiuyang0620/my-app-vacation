@@ -6,7 +6,7 @@ import Lazyimg from '../views/lazyimg'
 function RouterRoot() {
     return <BrowserRouter>
         <Switch>
-        <Route path='/lazyimg' component={Lazyimg}/>
+            <Route path='/lazyimg' component={Lazyimg}/>
             <Route path='/login' component={Login}/>
             <Route path='/home' component={Home}/>
             <Redirect from='/' to='/login'/>

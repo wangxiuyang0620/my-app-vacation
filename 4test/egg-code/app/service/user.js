@@ -5,8 +5,17 @@ class UserService extends Service {
     const login = await this.app.mysql.select('user',{where:{username}})
     return login
   }
-  async registeruser(username,password,role='访客'){
-    return await this.app.mysql.insert ('user',{id:null,username,password,role})
+  async list() {
+    return await this.app.mysql.select('user');
+  }
+  async delete(id) {
+    return await this.app.mysql.delete('user',{id});
+  }
+  async add(userObj){
+    return await this.app.mysql.insert('user',userObj);
+  }
+  async edit(userObj){
+    return await this.app.mysql.update('user',userObj);
   }
 }
 
