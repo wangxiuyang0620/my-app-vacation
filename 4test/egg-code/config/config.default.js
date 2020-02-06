@@ -6,6 +6,7 @@
  * @param {Egg.EggAppInfo} appInfo app info
  */
 const writeListData = require('./writeList')
+const oprList = require('./oprList')
 module.exports = appInfo => {
   /**
    * built-in config
@@ -37,9 +38,9 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1580796080130_3658';
 
   // add your middleware config here
-  config.middleware = ['jwt'];
+  config.middleware = ['jwt','opr'];
   config.jwt = writeListData
-
+config.opr = oprList
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
