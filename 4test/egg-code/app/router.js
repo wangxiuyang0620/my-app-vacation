@@ -5,10 +5,15 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
-  router.post('/login',controller.login.login);
-  router.get('/user/list', controller.user.list);
-  router.delete('/user/delete', controller.user.delete);
-  router.post('/user/add', controller.user.add);
-  router.post('/user/edit', controller.user.edit);
+  router.post('/login', controller.log.login);
+  router.post('/register', controller.log.register);
+  //用户管理
+  router.get('/user/list',controller.user.list)
+  router.delete('/user/delete',controller.user.detele)
+  router.post('/user/add',controller.user.add)
+  router.post('/user/edit',controller.user.edit)
+  //角色管理
+  router.get('/role/list',controller.role.list)
+  router.delete('/role/delete',controller.role.delete)
+  router.post('/role/add',controller.role.add)
 };

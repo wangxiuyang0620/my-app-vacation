@@ -1,9 +1,9 @@
 import React from 'react';
-import RouterRoot from './router/router'
+import Routerroot from './router/router';
 function App() {
   return (
     <div className="App">
-    <RouterRoot></RouterRoot>
+      <Routerroot/>
     </div>
   );
 }

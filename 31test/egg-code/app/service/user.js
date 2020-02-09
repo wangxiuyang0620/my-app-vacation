@@ -1,12 +1,12 @@
 const Service = require('egg').Service;
 
 class UserService extends Service {
-  async login(username) {
-    const login = await this.app.mysql.select('user',{where:{username}})
+  async login(user) {
+    const login = await this.app.mysql.select('user',{where:{user}})
     return login
   }
-  async registeruser(username,password,role='访客'){
-    return await this.app.mysql.insert ('user',{id:null,username,password,role})
+  async registeruser(user,pwd,role='访客'){
+    return await this.app.mysql.insert ('user',{id:null,user,pwd,role})
   }
 }
 

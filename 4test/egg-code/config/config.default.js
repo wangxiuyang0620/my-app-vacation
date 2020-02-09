@@ -5,15 +5,15 @@
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
-const writeListData = require('./writeList')
-const oprList = require('./oprList')
+const writeList = require('./writeList.js')
+const oprList = require('./oprList.js')
 module.exports = appInfo => {
   /**
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
   const config = exports = {
-    mysql : {
+    mysql: {
       // 单数据库信息配置
       client: {
         // host
@@ -35,16 +35,16 @@ module.exports = appInfo => {
   };
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1580796080130_3658';
+  config.keys = appInfo.name + '_1581051574691_585';
 
   // add your middleware config here
-  config.middleware = ['jwt','opr'];
-  config.jwt = writeListData
-config.opr = oprList
+  config.middleware = ['jwt', 'opr'];
+  config.jwt = writeList
+  config.opr = oprList
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
-    security : {
+    security: {
       csrf: false
     }
   };

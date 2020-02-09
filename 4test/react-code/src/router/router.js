@@ -1,16 +1,18 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import Login from '../views/login'
-import Home from '../views/home'
-import Lazyimg from '../views/lazyimg'
-function RouterRoot() {
-    return <BrowserRouter>
-        <Switch>
-            <Route path='/lazyimg' component={Lazyimg}/>
-            <Route path='/login' component={Login}/>
+import React from 'react';
+import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom'
+import Log from '../views/log'
+import Home from '../views/home/home'
+class RouterRoot extends React.Component{
+    render() {
+        return(
+            <BrowserRouter>
+            <Switch>
+            <Route path='/log' component={Log}/>
             <Route path='/home' component={Home}/>
-            <Redirect from='/' to='/login'/>
-        </Switch>
-    </BrowserRouter>
+            <Redirect from='/' to='/log'/>
+            </Switch>
+            </BrowserRouter>
+        )
+    }
 }
 export default RouterRoot

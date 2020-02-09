@@ -1,7 +1,7 @@
 <template>
   <div>
-    <van-field v-model="username" placeholder="请输入用户名" />
-    <van-field v-model="password" placeholder="请输入密码" />
+    <van-field v-model="user" placeholder="请输入用户名" />
+    <van-field v-model="pwd" placeholder="请输入密码" />
 
     <van-button type="primary" v-show="!isShow" @click="loginIn('/login')">登录</van-button>
     <p v-show="!isShow" @click=" isShow=! isShow">没有账号，去注册</p>
@@ -15,23 +15,23 @@
 export default {
   data() {
     return {
-      username: "",
-      password: "",
+      user: "",
+      pwd: "",
       isShow: false
     };
   },
   methods: {
     async loginIn(url) {
-      const { username, password, $http } = this;
-      if(username === ''){
+      const { user, pwd, $http } = this;
+      if(user === ''){
         alert('用户名不能为空')
         return
       }
-       if(password === ''){
+       if(pwd === ''){
         alert('密码不能为空')
         return
       }
-      let data=await $http('post',url,{username,password});
+      let data=await $http('post',url,{user,pwd});
       if(data.data.code===200){
         
         alert(data.data.msg)

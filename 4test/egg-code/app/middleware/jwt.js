@@ -6,31 +6,30 @@ function verifyFunc(token,ctx){
             if(error) throw error
             res(result)
         })
-
     })
 }
-module.exports = options =>{
+module.exports=options =>{
     return async (ctx,next)=>{
-        console.log(options)
         if(options.includes(url.parse(ctx.url).pathname)){
             await next()
             return
         }
-      
-   
-    let token = ctx.get('authorToken')
-    if(!token){
-        ctx.body={code:400,msg:"没有权限访问"}
-        return
+        let token = ctx.get('authorToken')
+        if(!token){
+            ctx.body={code:400,msg:"无权访问"}
+            return
+        }
+
+        let info
+        try{
+            info = await verifyFunc(token,ctx)
+          
+        }catch(error){
+            console.log(info)
+            ctx.body={code:400,msg:"权限无效，重新登陆"}
+            return
+        }
+        ctx.info =info
+        await next()
     }
-    let info
-    try{
-        info = await verifyFunc(token,ctx)
-    }catch(error){
-        ctx.body={code:400,msg:'权限无效，请重新登录'}
-        return
-    }
-    ctx.info = info
-    await next()
-}
 }
