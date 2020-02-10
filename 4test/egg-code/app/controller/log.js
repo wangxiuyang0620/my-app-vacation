@@ -23,7 +23,11 @@ class LogController extends Controller {
             ctx.body = { code: 400, msg: '密码错误' }
             return
         }
-        let token = jwt.sign({ ...res[0] }, app.config.keys)
+        let signData = {
+            ...res[0],
+            signTime:new Date().getTime()
+          }
+        let token = jwt.sign(signData, app.config.keys)
         ctx.body = { code: 200, msg: "登录成功", data: { token } }
     }
     async register(){

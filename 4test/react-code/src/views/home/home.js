@@ -11,40 +11,42 @@ const { SubMenu } = Menu;
 class Home extends React.Component {
   state = {
     collapsed: false,
-    menu: [
-      {
-        belong: "用户管理",
-        icon: 'user',
-        sub: [
-          {
-            key: "2",
-            name: "用户列表",
-            to: "/home/userlist"
-          }, {
-            key: "3",
-            name: "添加用户",
-            to: "/home/adduser"
+    menu:[]
+    // menu: [
+    //   {
+    //     belong: "用户管理",
+    //     icon: 'user',
+    //     sub: [
+    //       {
+    //         key: "2",
+    //         name: "用户列表",
+    //         to: "/home/userlist"
+    //       }, {
+    //         key: "3",
+    //         name: "添加用户",
+    //         to: "/home/adduser"
 
-          }
-        ]
+    //       }
+    //     ]
 
-      }, {
-        belong: "角色管理",
-        icon: "team",
-        sub: [
-          {
-            key: "4",
-            name: "角色列表",
-            to: '/home/rolelist'
-          }, {
-            key: "5",
-            name: "添加角色",
-            to: '/home/addrole'
-          }
-        ]
-      }
-    ]
+    //   }, {
+    //     belong: "角色管理",
+    //     icon: "team",
+    //     sub: [
+    //       {
+    //         key: "4",
+    //         name: "角色列表",
+    //         to: '/home/rolelist'
+    //       }, {
+    //         key: "5",
+    //         name: "添加角色",
+    //         to: '/home/addrole'
+    //       }
+    //     ]
+    //   }
+    // ]
   }
+ 
   onCollapse = collapsed => {
     console.log(collapsed);
     this.setState({ collapsed });
@@ -53,13 +55,25 @@ class Home extends React.Component {
     this.props.history.push('/login')
     localStorage.clear()
   }
+  async initMenu(){
+      let res = await this.$http('get','/menu/list')
+    if(res.data.code === 200){
+   this.setState({
+     menu:res.data.data
+   })
+   return
+    }
+   
+     
+    }
+  componentDidMount=()=>this.initMenu()
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
           <div className="logo" />
-          <Menu theme="dark"  mode="inline" defaultOpenKeys={['sub1']}>
-            <Menu.Item key="1">
+          <Menu theme="dark"  mode="inline" defaultOpenKeys={['sub1']} defaultSelectedKeys={['1']}>
+            <Menu.Item key="7">
               <Icon type="pie-chart" />
               <span onClick={() => this.props.history.push('/home/work')}>工作台</span>
             </Menu.Item>

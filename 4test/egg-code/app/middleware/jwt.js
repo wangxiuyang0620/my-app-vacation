@@ -29,6 +29,13 @@ module.exports=options =>{
             ctx.body={code:400,msg:"权限无效，重新登陆"}
             return
         }
+        let {signTime} = info;
+        let nowTime  = new Date().getTime();
+        let time    = (nowTime-signTime)/1000/60/60;
+        if( time >= 6){
+            ctx.body ={code:400,msg:"登录超时，请重新登录"} 
+            return
+        }
         ctx.info =info
         await next()
     }

@@ -7,6 +7,10 @@ module.exports = app => {
   const { router, controller } = app;
   router.post('/login', controller.log.login);
   router.post('/register', controller.log.register);
+
+  router.get('/menu/list', controller.home.list);
+  router.get('/work/echarts',controller.home.echarts)
+  
   //用户管理
   router.get('/user/list',controller.user.list)
   router.delete('/user/delete',controller.user.detele)
