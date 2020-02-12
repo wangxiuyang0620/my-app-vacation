@@ -1,23 +1,212 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-html,body,#root,.App{
-  width: 100%;
-  height: 100%;
+
+html,
+body,
+#root,
+.App {
+    width: 100%;
+    height: 100%;
 }
-.log{
+
+.log {
     width: 100%;
     height: 100%;
 
 }
-.log input{
+
+.log input {
     margin: 10px 0;
 }
-.log button{
+
+.log button {
     width: 100%;
+
+}
+
+.home {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.home>p {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background: #fff;
+    margin: 0;
+}
+
+.home p span {
+    flex: 1;
+    line-height: 50px;
+}
+
+.home p span:nth-child(3) {
+    text-align: center;
+    color: blue;
+}
+
+.home p span:nth-child(1) {
+    text-align: left;
+    padding: 0 5px;
+    font-size: 20px;
+}
+
+.home p span:nth-child(2) {
+    text-align: left;
+    padding: 0 30px;
+    font-weight: bolder;
+}
+
+.home_content {
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.home_header {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    padding: 0 40px;
+}
+
+.home_header span {
+    flex: 1;
+    text-align: center;
+    line-height: 40px;
+
+    border: 1px solid coral;
+    margin: 5px 0;
+}
+
+.active {
+    background: coral;
+    color: #fff;
+}
+
+.home_item {
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+}
+
+.home_item .item {
+    width: 95%;
+    height: 100px;
+    background: #fff;
+    margin: 5px 10px;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #ccc;
+    display: flex;
+}
+
+.home_item .item div:nth-child(1) {
+    width: 100px;
+    height: 100px;
+}
+.home_item .item div:nth-child(1) img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 25px 5px;
+}
+.home_item .item div:nth-child(2){
+    width: 100px;
+    height: 100px;
+    padding: 20px 0;
+}
+.home_item .item div:nth-child(2) p{
+    margin: 0;
+   line-height: 30px;
+}
+.home_item .item div:nth-child(3) p{
+    margin: 0;
+   line-height: 20px;
+   margin: 20px 0;
+}
+.addhome{
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+}
+.addhome-header{
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background: #fff;
+}
+.addcontent{
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+    padding: 0 5px;
+}
+.addtitle{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
     
 }
-.active{
-    color: red;
+.addtitle input{
+    width: 200px;
+    height: 30px;
+    margin: 0 10px;
+    border: none;
+    outline: none;
+}
+.adddes{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+}
+.adddes input{
+    width: 250px;
+    height: 100px;
+    margin: 0 10px;
+    border: none;
+    outline: none;
+}
+.addradio{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+.addhome >Button{
+ width: 90%;
+ height: 30px;
+ background: rgb(7, 150, 233);
+ color: #fff;
+ margin: 0 20px;
+}
+.jia{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background: green;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+}
+.jian{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    background: red;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
 }
