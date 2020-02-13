@@ -91,6 +91,7 @@ body,
 .active {
     background: coral;
     color: #fff;
+    
 }
 
 .home_item {
@@ -209,4 +210,108 @@ body,
     border-radius: 50%;
     text-align: center;
     line-height: 20px;
+}
+.items {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+}
+.items>p {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    background: #fff;
+    margin: 0;
+}
+
+.items p span {
+    flex: 1;
+    line-height: 50px;
+}
+
+.items p span:nth-child(3) {
+    text-align: center;
+    color: blue;
+}
+
+.items p span:nth-child(1) {
+    text-align: left;
+    padding: 0 5px;
+    font-size: 20px;
+}
+
+.items p span:nth-child(2) {
+    text-align: left;
+    padding: 0 30px;
+    font-weight: bolder;
+}
+.items_content{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+    padding: 0 10px;
+}
+.items_content button{
+    width: 90%;
+    height: 30px;
+    background: rgb(7, 150, 233);
+    color: #fff;
+    margin: 0 20px;
+    outline: none;
+    border: none;
+}
+.box-header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+.zuo{
+    flex: 4;
+  
+  
+}
+.you{
+    flex: 6;
+    line-height: 100px;
+ 
+}
+.box-item{
+width: 100%;
+height: 60px;
+display: flex;
+}
+.left{
+    flex: 8;
+    line-height: 58px;
+    border-bottom:2px solid #ccc ;
+}
+.right{
+    flex: 2;
+    line-height: 60px;
+    text-align: center;
+}
+.zuo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px 5px;
+}
+.left span{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin: 0 10px;
+}
+.left .col{
+    background: cornflowerblue;
 }

@@ -39,8 +39,9 @@ class Add extends Component {
                         </select>
                     </div>
                     <div>截止日期： <DatePicker onChange={(date, dateString) => this.setState({ deadline: new Date(dateString).getTime() })} showTime={true} /></div>
-
+                   
                 </div>
+                
                 <Button onClick={() => this.submit()}>提交</Button>
             </div>
         )
@@ -62,6 +63,11 @@ class Add extends Component {
         this.setState({ option: [...option] })
     }
     submit = async () => {
+        let typeNull = [];
+        Object.keys(this.state).forEach(item=>{
+            if(this.state[item] === '') typeNull.push(item)
+        })
+        if(typeNull.length>0) return alert(typeNull[0]+'不能为空')
         let { anonymous, isRadio, title, description, option, deadline } = this.state
         let res = await this.$http('post', '/add', { anonymous, isRadio, title, description, option, deadline })
         if (res.data.code === 1) {

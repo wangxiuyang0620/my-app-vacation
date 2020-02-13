@@ -9,4 +9,6 @@ module.exports = app => {
 
   router.get('/allVote',controller.home.index)
   router.post('/add',controller.home.add)
+  router.post('/list',controller.option.list)
+  router.post('/sub',controller.option.sub)
 };

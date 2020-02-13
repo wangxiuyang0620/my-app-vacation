@@ -14,7 +14,6 @@ class LogController extends Controller {
        ctx.body={code:0,msg:"密码不能为空"}
        return
    }
-   console.log(user,pwd)
    let res = await this.service.user.find(user)
    if(res.length === 0){
        ctx.body={code:0,msg:"用户不存在"}

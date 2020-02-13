@@ -3,7 +3,7 @@ class ListService extends Service{
     async list(){
       return await this.app.mysql.select('ticket_list')
     }
-    async add(anonymous,isRadio,title,description, deadline,name="www",qqnumber="11111111"){
+    async add(anonymous,isRadio,title,description, deadline,name,qqnumber){
       return await this.app.mysql.insert('ticket_list',{id:null,anonymous,isRadio,title,description, deadline,name,qqnumber})
     }
 }

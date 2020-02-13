@@ -5,6 +5,7 @@
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
+const writeList = require('./writeList.js')
 module.exports = appInfo => {
   /**
    * built-in config
@@ -36,7 +37,8 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1581419067833_5862';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['jwt'];
+  config.jwt   = writeList;
 
   // add your user config here
   const userConfig = {
