@@ -315,3 +315,25 @@ display: flex;
 .left .col{
     background: cornflowerblue;
 }
+.gray{
+    width: 80%;
+    height: 8px;
+    display: inline-block;
+    background: gray;
+    position: relative;
+}
+.blue{
+    height: 8px;
+    display: inline-block;
+    background: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.text{
+    height: 15px;
+    line-height: 15px;
+    float: right;
+    padding-right: 10%;
+}
+

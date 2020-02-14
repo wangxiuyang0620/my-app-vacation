@@ -57,7 +57,7 @@ class Home extends React.Component {
                     <div className='home_item'>
                         {
                             newlist.map(v => {
-                                return <div className="item" key={v.id} onClick={()=>this.props.history.push({pathname:'item',params:{v}})}>
+                                return <div className="item" key={v.id} onClick={()=>this.props.history.push({pathname:'item',state:v})}>
                                     <div>
                                         <img src={`http://q4.qlogo.cn/headimg_dl?dst_uin=${v.qqnumber}&spec=100`} alt="" />
                                     </div>

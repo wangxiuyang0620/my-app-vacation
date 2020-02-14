@@ -10,7 +10,20 @@ class OptionController extends Controller{
  }
  async sub(){
      const {ctx} = this;
-     ctx.body={code:1,msg:"提交成功"}
+     const {submitData} = ctx.request.body;
+     let successArr = 0;
+     submitData.forEach(async item=>{
+         let res = await this.service.option.update(item)
+         if(res.affectedRows !== 1){
+            ++successArr
+            console.log(successArr)
+         }
+         if(successArr>0){
+            ctx.body = {code:1,msg:"系统故障"}
+            return
+          }
+          ctx.body={code:0,msg:"投票成功"}
+     })
  }
 }
 module.exports=OptionController
