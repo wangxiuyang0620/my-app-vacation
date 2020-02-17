@@ -1,7 +1,7 @@
 
 import Home from '../views/home';
 import Log from '../views/log';
-import Register from '../views/register'
+import Count from '../views/count'
 import Add from '../views/add';
 import Item from '../views/item'
 const RouterRoot =[
@@ -10,9 +10,9 @@ const RouterRoot =[
         name:"log",
         component:Log
     },{
-        path:"/register",
-        name:"register",
-        component:Register
+        path:"/count",
+        name:"count",
+        component:Count
     },{
         path:"/home",
         name:"home",

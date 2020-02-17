@@ -67,7 +67,7 @@ class Home extends React.Component {
                                     </div>
                                     <div>
                                         <p>截止到{this.Timer(v.deadline)}</p>
-                                        <p style={{ textAlign: "right" }}>{v.isRadio === 1 ? '多选' : '单选'}</p>
+                                        <p style={{ textAlign: "right" }}>{v.isRadio == 2 ? '多选' : '单选'}</p>
                                     </div>
                                 </div>
                             })

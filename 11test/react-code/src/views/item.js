@@ -43,23 +43,32 @@ class Item extends React.Component {
     state = {
         option: [],
         list: this.props.location.state,
-        submitData:[]
+        submitData:[],
+        isShow:'yes'
 
     }
     async initData() {
-        let id = this.state.list.id;
+        const {id,deadline} = this.state.list
         let res = await this.$http('post', '/list', { id })
-        this.setState({
-            option: res.data.data
-        })
+        if(res.data.code === 0){
+            let isShow = res.data.data.issubmit === 'yes' && deadline>new Date().getTime()?'yes':'no';
+            this.setState({
+                option: res.data.data.res,
+                isShow:isShow
+            })
+            return
+        }
+     
+
+        
     }
     async submit() {
-        const {submitData} = this.state;
-        let res = await this.$http('post', '/sub',{submitData})
+        const {submitData,list} = this.state;
+        let res = await this.$http('post','/detail/update',{submitData,id:list.id});
         if(res.data.code === 0){
             this.initData()
         }
-        alert(res.data.msg)
+        console.log(res)
     }
    
     // 单选函数赋值
@@ -68,12 +77,12 @@ class Item extends React.Component {
     //多选元素赋值
     checkFunc = checkedValues => this.setState({submitData:[...checkedValues]})
     render() {
-        let { list, option } = this.state
+        let { list, option ,isShow} = this.state
         let allcount = 0
         option.forEach(item => allcount += item.count);
         return (
             <div className='items'>
-                <p onClick={() => this.props.history.push('/home')}><span>&gt;</span><span>投票详情</span> <span >统计</span></p>
+                <p><span  onClick={() => this.props.history.push('/home')}>&gt;</span><span>投票详情</span> <span onClick={()=>this.props.history.push({pathname:'count',state:{list,option}})}>统计</span></p>
                 <div className='items_content'>
                     <div className='box-header'>
                         <div className='zuo'>
@@ -95,7 +104,9 @@ class Item extends React.Component {
                         <CheckHtml options={option} checkFunc={this.checkFunc} allcount={allcount}/>
                         }
                     </div>
-                  <button onClick={()=>this.submit()}>提交</button>
+                    {
+                   isShow==='yes'?<button onClick={()=>this.submit()}>提交</button>:null
+                }
                 </div>
             </div>
         )
@@ -112,15 +123,3 @@ class Item extends React.Component {
     componentDidMount = () => this.initData()
 }
 export default Item
-{/* <div className='box'>
-
-{
-    this.state.option.map((item, index) => {
-        return <div className='box-item' key={index}>
-            <div className='left'><span className={currentIndex===index ? 'col' :''} onClick={()=>this.setState({currentIndex:index})} ></span>{item.option_name}</div>
-            <div className='right'>{item.count}票</div>
-        </div>
-    })
-}
-
-</div> */}
